@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post Idea - Ideonix</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background: linear-gradient(rgba(163, 145, 132, 0.9),rgba(134, 105, 85, 0.9)),
+    url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');
+
+    background-size: cover;
+    background-position: center;
+    min-height:100vh;
+}
+
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    color:#4a4035;
+    background-color: #e9e1d6;
+}
+
+nav h2{
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+    color:rgb(218,164,93);
+}
+
+
+nav a{
+    text-decoration:none;
+    color:rgb(24, 24, 23);
+    font-weight:500;
+}
+nav a:hover{
+color:#8B5E3C;
+}
+
+/* CONTAINER */
+.container{
+    width:400px;
+    margin:50px auto;
+    background:rgba(255,255,255,0.95);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+.container h1{
+    margin-bottom:10px;
+}
+
+.container p{
+    margin-bottom:20px;
+    color:#555;
+}
+
+
+form{
+    display:flex;
+    flex-direction:column;
+    text-align:left;
+}
+
+label{
+    margin:10px 0 5px;
+    font-weight:600;
+}
+
+input, textarea, select{
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    outline:none;
+    font-size:14px;
+}
+
+input:focus, textarea:focus, select:focus{
+    border-color:#8B5E3C;
+}
+
+button{
+    margin-top:20px;
+    padding:12px;
+    border:none;
+    background:#8B5E3C;
+    color:white;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#4a4035;
+}
+</style>
+
+</head>
+
+<body>
+
+
+ <div>
+<nav>
+    <h2>Ideonix</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="postidea.html">Post Idea</a></li>
+        <li><a href="profile.html">Profile</a></li>
+    </ul>
+</nav>
+</div>
+
+<div class="container">
+
+    <h1>Share Your Idea 💡</h1>
+    <p>Turn your creativity into reality. Post your idea and collaborate.</p>
+
+    <form onsubmit="handleSubmit(event)">
+
+        <label>Idea Title</label>
+        <input type="text" id="title" placeholder="Enter idea title" required>
+
+        <label>Description</label>
+        <textarea id="desc" rows="4" placeholder="Describe your idea..." required></textarea>
+
+        <label>Category</label>
+        <select id="category">
+            <option>Technology</option>
+            <option>AI / ML</option>
+            <option>Startup</option>
+            <option>Social Impact</option>
+        </select>
+
+        <label>Tags</label>
+        <input type="text" id="tags" placeholder="#AI #Startup #Innovation">
+
+        <label>Upload Image</label>
+        <input type="file">
+
+        <button type="submit">Post Idea 🚀</button>
+
+    </form>
+
+</div>
+
+<script>
+function handleSubmit(e){
+  e.preventDefault();
+
+  let title = document.getElementById("title").value;
+  let desc = document.getElementById("desc").value;
+  let category = document.getElementById("category").value;
+  let tags = document.getElementById("tags").value;
+
+  let ideas = JSON.parse(localStorage.getItem("ideas")) || [];
+
+  let newIdea = {
+    title, desc, category, tags
+  };
+
+  ideas.push(newIdea);
+  localStorage.setItem("ideas", JSON.stringify(ideas));
+
+  alert("Idea Posted Successfully 🚀");
+
+  document.querySelector("form").reset();
+
+  window.location.href = "getideas.html";
+}
+</script>
+
+</body>
+</html>
+

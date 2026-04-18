@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideonix</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div id="vanta-bg">
+
+        <!-- NAVBAR -->
+        <div class="navbar">
+            <div class="logo">Ideonix</div>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="postidea.html">Post ideas</a>
+                <a href="explore.html">Explore</a>
+                <a href="profile.html">Profile</a>
+
+            </div>
+            <div class="nav-btn">
+                <button onclick="toggleDark()">🌙</button>
+                <a href="login.html"><button class="login">Login</button></a>
+                <a href="signup.html"><button class="signup">Sign Up</button></a>
+            </div>
+
+
+        </div>
+        <div class="container">
+            <!-- HERO -->
+            <div class="glass hero">
+                <div class="hero-text">
+                    <h1>Share your ideas with the world</h1>
+                    <p>Explore, collaborate and build amazing projects.</p><br>
+
+                    <a href="postidea.html"><button class="primary-btn">Post Idea</button></a>
+                    <a href="explore.html"><button class="secondary-btn">Explore</button></a>
+                </div>
+
+                <div class="hero-img">
+                    <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg">
+                </div>
+            </div>
+
+            <!-- FEATURES -->
+            <div class="glass">
+                <div class="features">
+                    <a href="postidea.html">
+                        <div class="feature-card">
+                            <h3>💡 Share Ideas</h3>
+                            <p>Post your innovative ideas.</p>
+                        </div>
+                    </a>
+
+                    <div class="feature-card">
+                        <h3>💬 Feedback</h3>
+                        <p>Get suggestions from others.</p>
+                    </div>
+
+                    <a href="collaborate.html">
+                        <div class="feature-card">
+                            <h3>🤝 Collaborate</h3>
+                            <p>Work with creative people.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- IDEAS -->
+                <div class="glass">
+                    <h2 style="margin-bottom:20px;">Trending Ideas</h2>
+
+                    <div class="idea-cards">
+
+                        <div class="card">
+                            <img src="https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg">
+                            <div class="card-content">
+                                <h3>AI Attendance</h3>
+                                <p>Face recognition system.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg">
+                            <div class="card-content">
+                                <h3>Smart Waste</h3>
+                                <p>IoT recycling system.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg">
+                            <div class="card-content">
+                                <h3>Collaboration App</h3>
+                                <p>Team project platform.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- FOOTER -->
+                <div class="footer">
+                    <p>© 2026 Ideonix | All Rights Reserved</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- VANTA -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
+        <script>
+            VANTA.NET({
+                el: "#vanta-bg",
+                color: 0x8b5e3c,
+                backgroundColor: 0xeae3d9,
+                points: 10,
+                maxDistance: 20,
+                spacing: 18
+            });
+
+            function toggleDark() {
+                document.body.classList.toggle("dark");
+            }
+        </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ideonix Profile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #eae3d9, #d6cfc4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.card {
+  width: 340px;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #f4ede4;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+  text-align: center;
+  position: relative;
+}
+
+/* TOP SECTION */
+.card-top {
+  background: #8B5E3C;
+  height: 140px;
+  position: relative;
+}
+
+/* PROFILE IMAGE */
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid #f4ede4;
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* CONTENT */
+.card-content {
+  padding: 70px 25px 25px;
+}
+
+.card-content h2 {
+  margin-bottom: 5px;
+}
+
+/* USERNAME */
+.username {
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* BIO */
+.bio {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* SOCIAL ICONS */
+.social-icons i {
+  margin: 0 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* BUTTONS */
+.buttons {
+  margin-top: 20px;
+}
+
+.follow {
+  background: #8B5E3C;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.message {
+  background: transparent;
+  border: 2px solid #8B5E3C;
+  color: #8B5E3C;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* LOGOUT */
+.logout {
+  display: block;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #8B5E3C;
+  cursor: pointer;
+}
+
+</style>
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="card">
+
+  <!-- TOP -->
+  <div class="card-top">
+    <img src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3R1ZGVudCUyMHdpdGglMjBsYXB0b3B8ZW58MHx8MHx8fDA%3D " class="profile-img">
+  </div>
+
+  <!-- CONTENT -->
+  <div class="card-content">
+
+    <h2 id="name"></h2>
+    <p class="username" id="username"></p>
+
+    <p class="bio">
+      Sharing innovative ideas on Ideonix 🚀 <br>
+      Creator | Thinker | Builder
+    </p>
+
+    <div class="social-icons">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-linkedin-in"></i>
+      <i class="fab fa-x-twitter"></i>
+      <i class="fab fa-instagram"></i>
+    </div>
+
+    <div class="buttons">
+      <button class="follow">Follow</button>
+      <button class="message">Message</button>
+    </div>
+
+    <div class="logout" onclick="logout()">Logout</div>
+
+  </div>
+
+</div>
+
+<script>
+
+/* GET USER DATA */
+let user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+if (user) {
+  document.getElementById("name").innerText = user.name;
+  document.getElementById("username").innerText = "@" + user.email.split("@")[0];
+} else {
+  window.location.href = "login.html";
+}
+
+/* LOGOUT */
+function logout() {
+  localStorage.removeItem("loggedInUser");
+  window.location.href = "login.html";
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ideonix - Sign Up</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #eae3d9, #d6cfc4);
+}
+
+/* MAIN */
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FRAME */
+.bg-box {
+  width: 95%;
+  max-width: 1100px;
+  border-radius: 32px;
+  overflow: hidden;
+  border: 8px solid rgba(255,255,255,0.4);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+  background: #f4ede4;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: #e9e1d6;
+  border-bottom: 1px solid #d2c8bb;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #4a4035;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #4a4035;
+  font-size: 14px;
+}
+
+/* RIGHT */
+.nav-right {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.search-box {
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+/* BG IMAGE */
+.bg-image {
+  position: relative;
+}
+
+.bg-image img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  filter: brightness(0.65);
+}
+
+/* SIGNUP CARD */
+.signup-card {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 400px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(244, 237, 228, 0.95);
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* TITLE */
+.signup-card h2 {
+  margin-bottom: 25px;
+}
+
+/* INPUT */
+.input-box {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.input-box input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  padding: 8px 0;
+  background: transparent;
+  outline: none;
+}
+
+/* BUTTON */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #8B5E3C;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #6e472d;
+}
+
+/* LINK */
+.link {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #8B5E3C;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="main">
+
+  <div class="bg-box">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="logo">Ideonix</div>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="postidea.html">Post Idea</a>
+        <a href="explore.html">Explore</a>
+      </div>
+
+      <div class="nav-right">
+        <input type="text" placeholder="Search" class="search-box">
+        <span>👤</span>
+        
+      </div>
+    </div>
+
+    <!-- IMAGE -->
+    <div class="bg-image">
+      <img src="https://images.unsplash.com/photo-1618220179428-22790b461013">
+
+      <!-- SIGNUP FORM -->
+      <div class="signup-card">
+        <h2>Create Account</h2>
+
+        <div class="input-box">
+          <input type="text" placeholder="Full Name">
+        </div>
+
+        <div class="input-box">
+          <input type="email" placeholder="Email">
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Password">
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Confirm Password">
+        </div>
+
+        <!--<button class="btn">SIGN UP</button>-->
+        <button class="btn" onclick="signup()">SIGN UP</button>
+
+        <div class="link">Already have an account? Login</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function signup() {
+  let name = document.querySelector('input[placeholder="Full Name"]').value;
+  let email = document.querySelector('input[placeholder="Email"]').value;
+  let password = document.querySelector('input[placeholder="Password"]').value;
+
+  let user = {
+    name: name,
+    email: email,
+    password: password
+  };
+
+  localStorage.setItem("user", JSON.stringify(user));
+
+  alert("Account created!");
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+
+
+
+</html>

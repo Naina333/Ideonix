@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Explore Ideas</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background: linear-gradient(rgba(163, 145, 132, 0.9),rgba(134, 105, 85, 0.9)),
+    url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');
+
+    background-size: cover;
+    background-position: center;
+    min-height:100vh;
+}
+
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    color:white;
+    background-color: rgba(203, 165, 146, 0.9);
+}
+
+nav h2{
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+    color:rgb(126, 85, 31);
+}
+
+
+nav a{
+    text-decoration:none;
+    color:rgb(24, 24, 23);
+    font-weight:500;
+}
+nav a:hover{
+color:#7b2ff7;
+}
+
+/* CONTAINER */
+.container{
+    width:400px;
+    margin:50px auto;
+    background:rgba(255,255,255,0.95);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+.container h1{
+    margin-bottom:10px;
+}
+
+.container p{
+    margin-bottom:20px;
+    color:#555;
+}
+
+
+form{
+    display:flex;
+    flex-direction:column;
+    text-align:left;
+}
+
+label{
+    margin:10px 0 5px;
+    font-weight:600;
+}
+
+input, textarea, select{
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    outline:none;
+    font-size:14px;
+}
+
+input:focus, textarea:focus, select:focus{
+    border-color:#7b2ff7;
+}
+
+button{
+    margin-top:20px;
+    padding:12px;
+    border:none;
+    background:#7b2ff7;
+    color:white;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#5a1fd1;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>Explore Ideas 💡</h2>
+</nav>
+
+<div class="container" id="ideasContainer"></div>
+
+<script>
+let ideas = JSON.parse(localStorage.getItem("ideas")) || [];
+
+let container = document.getElementById("ideasContainer");
+
+if(ideas.length === 0){
+  container.innerHTML = "<p>No ideas yet 😔</p>";
+}
+
+ideas.forEach(idea => {
+  let div = document.createElement("div");
+  div.className = "card";
+
+  div.innerHTML = `
+    <h3>${idea.title}</h3>
+    <p>${idea.desc}</p>
+    <small>${idea.category} | ${idea.tags}</small>
+  `;
+
+  container.appendChild(div);
+});
+</script>
+
+</body>
+</html>
